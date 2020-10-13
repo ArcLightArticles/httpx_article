@@ -5,13 +5,9 @@ class HTTPXAsyncClient:
     _client = None
 
     @classmethod
-    def get_client(cls):
+    def get_client(cls) -> httpx.AsyncClient:
         if cls._client is None:
             cls._client = httpx.AsyncClient()
         return cls._client
 
 HTTPX_client = HTTPXAsyncClient()
-
-
-async def on_start_up():
-    HTTPXAsyncClient.get_client()
